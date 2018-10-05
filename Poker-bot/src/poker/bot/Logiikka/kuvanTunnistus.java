@@ -5,13 +5,11 @@
  */
 package poker.bot.Logiikka;
 
-import poker.bot.Application.ApplicationUI;
 import java.awt.AWTException;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.image.BufferedImage;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
@@ -20,15 +18,14 @@ import java.util.Calendar;
  */
 public class kuvanTunnistus {
 
-    public Robot s;
+    public Robot s; //Robotti (ottaa kuvan)
     public boolean paalla = false;
-    public ArrayList listOfImages;
-    public ArrayList suorakulmiot;
     public BufferedImage screenShot;
+
     public kuvanTunnistus() {
         paalla = true;
         try {
-            s = new Robot();
+            s = new Robot(); //Luodaan robotti nimeltä s.
         } catch (AWTException ex) {
             //Logger.getLogger(kuvanTunnistus.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -37,10 +34,12 @@ public class kuvanTunnistus {
 
     public void uusiKuvankaappaus() {
         System.out.println(getAika() + " - ");
-        //listOfImages.clear();
-        screenShot = s.createScreenCapture(new Rectangle(2, 2, 2, 2));
-        //Tutkitaan mikä kirjain on kyseessä!
-        ApplicationUI.kuva(screenShot);
+        screenShot = s.createScreenCapture(new Rectangle(2, 2, 2, 2)); //public Rectangle(int x, int y, int width, int height) {
+        /*
+            Tutkitaan mikä kirjain on kuvassa
+            OpenCV kuvantunnistus...
+         */
+
     }
 
     public String getAika() {
