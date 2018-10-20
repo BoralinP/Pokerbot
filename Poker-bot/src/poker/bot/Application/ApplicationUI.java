@@ -7,8 +7,12 @@ package poker.bot.Application;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
 
 /**
  *
@@ -35,19 +39,18 @@ public class ApplicationUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("PokerBot");
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("PokerBot");
 
         jButton1.setText("Start");
         jButton1.setToolTipText("");
-        jButton1.setActionCommand("Start");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -63,22 +66,21 @@ public class ApplicationUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
-            .addComponent(jSeparator1)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
+                .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(528, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addContainerGap(515, Short.MAX_VALUE))
         );
 
         jButton1.getAccessibleContext().setAccessibleDescription("Aloittaa BlackJack botin");
@@ -94,13 +96,13 @@ public class ApplicationUI extends javax.swing.JFrame {
 
         // TODO add your handling code here:
         logiikka = new Logiikka();
-        logiikka.aja();
+        //logiikka.aja();
         new Thread(new Runnable() {
             public void run() {
                 try {
                     for (;;) {
                         Thread.currentThread().sleep(2000);
-                        logiikka.aja();
+                        //logiikka.aja();
                         if (!loop_status) { // this loops until the value of the variable changed to false
                             break;
                         }
@@ -139,6 +141,7 @@ public class ApplicationUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ApplicationUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -149,10 +152,28 @@ public class ApplicationUI extends javax.swing.JFrame {
         });
 
     }
+    /*
+    public static void näytäKuva(BufferedImage kuva2) {
+        System.out.println(kuva2);
+        for (int i = 0; i < kuva.getComponents().length; i++) {
+            //Output
+            System.out.println("Tuhottiin componentti indeksistä " + i + " - " + kuva.getComponent(i).toString());
+            //--
+
+            kuva.remove(i);
+
+        }
+        //ImageIcon img = new ImageIcon(kuva2);
+        //System.out.println(drawImage);
+        //img.
+        kuva.show();
+
+    }
+     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 
